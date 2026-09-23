@@ -1,0 +1,25 @@
+# --- environment / build -----------------------------------------------------------------
+.venv/
+__pycache__/
+*.pyc
+build/
+dist/
+*.spec
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
+
+# --- large binaries: weights ship as a GitHub Release asset, datasets are regenerable -------
+*.pth
+allside_Generalised model/datasets/*
+!allside_Generalised model/datasets/dataset_allsides_climate_genroom_stresstest.csv
+evidence/ablation/*.csv
+evidence/ablation/ablation_results/*.pth
+
+# --- generated results: only the two Radiance-verified reference runs are kept --------------
+allside_Generalised model/outputs/*
+!allside_Generalised model/outputs/example_job/
+!allside_Generalised model/outputs/rotated_multislot/
+allside_Generalised model/responsive facade/captures/
+allside_Generalised model/climate data/download_manifest.csv

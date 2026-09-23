@@ -1,0 +1,172 @@
+﻿WMO Region,City/Station,Country/Location Type,Primary Climate Profile
+Region 1: Africa,Cairo,Egypt,Hot Desert / High Direct Irradiance
+Region 1: Africa,Nairobi,Kenya,Equatorial Highland / Consistent Sun Angles
+Region 1: Africa,Casablanca,Morocco,Warm Mediterranean
+Region 1: Africa,Lagos,Nigeria,Tropical Wet / High Diffuse Irradiance
+Region 1: Africa,Cape Town,South Africa,Warm Mediterranean (Southern Hemisphere)
+Region 1: Africa,Addis Ababa,Ethiopia,Subtropical Highland
+Region 1: Africa,Dakar,Senegal,Hot Semi-arid
+Region 1: Africa,Khartoum,Sudan,Extreme Hot Desert
+Region 1: Africa,Dar es Salaam,Tanzania,Tropical Wet/Dry
+Region 1: Africa,Windhoek,Namibia,Hot Semi-arid
+Region 1: Africa,Luanda,Angola,Hot Semi-arid
+Region 1: Africa,Accra,Ghana,Tropical Savanna
+Region 1: Africa,Tunis,Tunisia,Hot Mediterranean
+Region 1: Africa,Kigali,Rwanda,Temperate Highland
+Region 1: Africa,Antananarivo,Madagascar,Subtropical Highland
+Region 2: Asia,Beijing,China,Humid Continental / Seasonal Variance
+Region 2: Asia,Tokyo,Japan,Humid Subtropical
+Region 2: Asia,Mumbai,India,Tropical Wet/Dry / Monsoon Extremes
+Region 2: Asia,Singapore,Singapore,Tropical Rainforest / High Overcast Ratios
+Region 2: Asia,Riyadh,Saudi Arabia,Hot Desert / Maximum Solar Penetration
+Region 2: Asia,Tehran,Iran,Cold Semi-arid
+Region 2: Asia,Seoul,South Korea,Humid Continental
+Region 2: Asia,Jakarta,Indonesia,Tropical Monsoon
+Region 2: Asia,Ulaanbaatar,Mongolia,Cold Semi-arid / High Altitude
+Region 2: Asia,Manila,Philippines,Tropical Rainforest
+Region 2: Asia,Karachi,Pakistan,Hot Desert
+Region 2: Asia,Tashkent,Uzbekistan,Continental Mediterranean
+Region 2: Asia,Kathmandu,Nepal,Subtropical Highland
+Region 2: Asia,Colombo,Sri Lanka,Tropical Rainforest
+Region 2: Asia,Almaty,Kazakhstan,Humid Continental
+Region 3: South America,Sao Paulo,Brazil,Humid Subtropical
+Region 3: South America,Buenos Aires,Argentina,Humid Subtropical
+Region 3: South America,Bogota,Colombia,Oceanic / High Altitude
+Region 3: South America,Lima,Peru,Mild Desert / Persistent Coastal Stratus
+Region 3: South America,Santiago,Chile,Mediterranean
+Region 3: South America,Quito,Ecuador,Subtropical Highland / Equatorial
+Region 3: South America,La Paz,Bolivia,High Altitude Tundra
+Region 3: South America,Manaus,Brazil,Tropical Rainforest
+Region 3: South America,Ushuaia,Argentina,Subpolar Oceanic / Extreme Low Angles
+Region 3: South America,Asuncion,Paraguay,Tropical Savanna
+Region 3: South America,Caracas,Venezuela,Tropical Savanna
+Region 3: South America,Montevideo,Uruguay,Humid Subtropical
+Region 3: South America,Guayaquil,Ecuador,Tropical Savanna
+Region 3: South America,Recife,Brazil,Tropical Monsoon
+Region 3: South America,Cordoba,Argentina,Semi-arid
+Region 4: North and Central America,Houston,USA,Humid Subtropical
+Region 4: North and Central America,Seattle,USA,Mixed Marine / High Overcast Baseline
+Region 4: North and Central America,Miami,USA,Tropical Monsoon
+Region 4: North and Central America,Anchorage,USA,Subarctic / Low Sun Angle
+Region 4: North and Central America,Phoenix,USA,Hot Desert / Maximum Direct Sun
+Region 4: North and Central America,Chicago,USA,Humid Continental
+Region 4: North and Central America,Denver,USA,Semi-arid / High Altitude
+Region 4: North and Central America,Honolulu,USA,Tropical Semi-arid
+Region 4: North and Central America,Toronto,Canada,Humid Continental
+Region 4: North and Central America,Vancouver,Canada,Marine West Coast
+Region 4: North and Central America,Calgary,Canada,Cold Semi-arid
+Region 4: North and Central America,Yellowknife,Canada,Subarctic
+Region 4: North and Central America,Mexico City,Mexico,Subtropical Highland
+Region 4: North and Central America,Cancun,Mexico,Tropical Wet/Dry
+Region 4: North and Central America,Havana,Cuba,Tropical Savanna
+Region 4: North and Central America,San Jose,Costa Rica,Tropical Wet/Dry
+Region 4: North and Central America,Panama City,Panama,Tropical Monsoon
+Region 4: North and Central America,Guatemala City,Guatemala,Tropical Savanna
+Region 4: North and Central America,San Juan,Puerto Rico,Tropical Monsoon
+Region 4: North and Central America,Monterrey,Mexico,Semi-arid
+Region 5: Southwest Pacific,Sydney,Australia,Humid Subtropical
+Region 5: Southwest Pacific,Melbourne,Australia,Oceanic
+Region 5: Southwest Pacific,Darwin,Australia,Tropical Savanna
+Region 5: Southwest Pacific,Alice Springs,Australia,Hot Desert / Inland Arid
+Region 5: Southwest Pacific,Hobart,Australia,Oceanic (Southern Latitudes)
+Region 5: Southwest Pacific,Auckland,New Zealand,Oceanic
+Region 5: Southwest Pacific,Wellington,New Zealand,Oceanic
+Region 5: Southwest Pacific,Suva,Fiji,Tropical Rainforest
+Region 5: Southwest Pacific,Port Moresby,Papua New Guinea,Tropical Savanna
+Region 5: Southwest Pacific,Noumea,New Caledonia,Tropical Savanna
+Region 6: Europe,London,United Kingdom,Oceanic / Diffuse Dominated
+Region 6: Europe,Paris,France,Oceanic
+Region 6: Europe,Berlin,Germany,Oceanic / Continental
+Region 6: Europe,Madrid,Spain,Mediterranean
+Region 6: Europe,Rome,Italy,Mediterranean
+Region 6: Europe,Stockholm,Sweden,Humid Continental / Severe Winter Angles
+Region 6: Europe,Oslo,Norway,Humid Continental
+Region 6: Europe,Helsinki,Finland,Humid Continental
+Region 6: Europe,Moscow,Russia,Humid Continental
+Region 6: Europe,Reykjavik,Iceland,Subpolar Oceanic / Marginal Daylight
+Region 6: Europe,Athens,Greece,Mediterranean
+Region 6: Europe,Istanbul,Turkiye,Mediterranean
+Region 6: Europe,Warsaw,Poland,Humid Continental
+Region 6: Europe,Vienna,Austria,Oceanic
+Region 6: Europe,Lisbon,Portugal,Mediterranean
+Region 6: Europe,Dublin,Ireland,Oceanic
+Region 6: Europe,Kyiv,Ukraine,Humid Continental
+Region 6: Europe,Zurich,Switzerland,Oceanic
+Region 6: Europe,Copenhagen,Denmark,Oceanic
+Region 6: Europe,Edinburgh,United Kingdom,Oceanic
+Region 7: Antarctica,McMurdo Station,Polar Ice Cap,Extreme Albedo / Continuous Seasonal Light
+Region 7: Antarctica,Amundsen-Scott,South Pole,Absolute Polar / 6-Month Day/Night Cycle
+Region 7: Antarctica,Palmer Station,Tundra,Polar Marine
+Region 7: Antarctica,Vostok Station,Polar Ice Cap,High Altitude Polar
+Region 7: Antarctica,Rothera,Tundra,Polar Coastal
+Region 2: Asia,Dubai,United Arab Emirates,Hot Desert
+Region 2: Asia,Abu Dhabi,United Arab Emirates,Hot Desert
+Region 2: Asia,Tel Aviv,Israel,Hot Mediterranean
+Region 2: Asia,Taipei,Taiwan,Humid Subtropical
+Region 2: Asia,Hong Kong,HKG,Humid Subtropical
+Region 2: Asia,Kuala Lumpur,Malaysia,Tropical Rainforest
+Region 2: Asia,Osaka,Japan,Humid Subtropical
+Region 4: North and Central America,New York,USA,Humid Continental
+Region 4: North and Central America,San Jose,USA,Mediterranean (California)
+Region 4: North and Central America,Boston,USA,Humid Continental
+Region 4: North and Central America,San Francisco,USA,Cool Mediterranean / Marine
+Region 4: North and Central America,Los Angeles,USA,Mediterranean
+Region 4: North and Central America,Washington,USA,Humid Subtropical
+Region 4: North and Central America,Dallas,USA,Humid Subtropical
+Region 4: North and Central America,Atlanta,USA,Humid Subtropical
+Region 4: North and Central America,Philadelphia,USA,Humid Subtropical
+Region 4: North and Central America,Minneapolis,USA,Humid Continental
+Region 4: North and Central America,San Diego,USA,Semi-arid Mediterranean
+Region 4: North and Central America,Austin,USA,Humid Subtropical
+Region 4: North and Central America,Portland,USA,Marine West Coast (Oregon)
+Region 4: North and Central America,Salt Lake City,USA,Cold Semi-arid
+Region 4: North and Central America,Nashville,USA,Humid Subtropical
+Region 4: North and Central America,Baltimore,USA,Humid Subtropical
+Region 4: North and Central America,Madison,USA,Humid Continental (Wisconsin)
+Region 4: North and Central America,Charlotte,USA,Humid Subtropical
+Region 4: North and Central America,Riverside,USA,Mediterranean / Semi-arid (California)
+Region 4: North and Central America,Columbus,USA,Humid Continental (Ohio)
+Region 4: North and Central America,Detroit,USA,Humid Continental
+Region 4: North and Central America,Providence,USA,Humid Continental
+Region 4: North and Central America,Richmond,USA,Humid Subtropical (Virginia)
+Region 4: North and Central America,Orlando,USA,Humid Subtropical
+Region 4: North and Central America,Tampa,USA,Humid Subtropical
+Region 4: North and Central America,Las Vegas,USA,Hot Desert
+Region 4: North and Central America,Omaha,USA,Humid Continental
+Region 4: North and Central America,Raleigh,USA,Humid Subtropical
+Region 4: North and Central America,Montreal,Canada,Humid Continental
+Region 4: North and Central America,Ottawa,Canada,Humid Continental
+Region 5: Southwest Pacific,Brisbane,Australia,Humid Subtropical
+Region 5: Southwest Pacific,Perth,Australia,Mediterranean
+Region 5: Southwest Pacific,Canberra,Australia,Oceanic / Continental
+Region 5: Southwest Pacific,Adelaide,Australia,Mediterranean
+Region 5: Southwest Pacific,Gold Coast,Australia,Humid Subtropical
+Region 6: Europe,Munich,Germany,Oceanic / Continental
+Region 6: Europe,Hamburg,Germany,Oceanic
+Region 6: Europe,Frankfurt,Germany,Oceanic
+Region 6: Europe,Dusseldorf,Germany,Oceanic
+Region 6: Europe,Amsterdam,Netherlands,Oceanic
+Region 6: Europe,Rotterdam,Netherlands,Oceanic
+Region 6: Europe,The Hague,Netherlands,Oceanic
+Region 6: Europe,Eindhoven,Netherlands,Oceanic
+Region 6: Europe,Geneva,Switzerland,Oceanic
+Region 6: Europe,Basel,Switzerland,Oceanic
+Region 6: Europe,Bern,Switzerland,Oceanic
+Region 6: Europe,Lausanne,Switzerland,Oceanic
+Region 6: Europe,Brussels,Belgium,Oceanic
+Region 6: Europe,Antwerp,Belgium,Oceanic
+Region 6: Europe,Gent,Belgium,Oceanic
+Region 6: Europe,Manchester,United Kingdom,Oceanic
+Region 6: Europe,Glasgow,United Kingdom,Oceanic
+Region 6: Europe,Leeds,United Kingdom,Oceanic
+Region 6: Europe,Bristol,United Kingdom,Oceanic
+Region 6: Europe,Cambridge,United Kingdom,Oceanic
+Region 6: Europe,Milan,Italy,Humid Subtropical
+Region 6: Europe,Barcelona,Spain,Mediterranean
+Region 6: Europe,Lyon,France,Oceanic / Continental
+Region 6: Europe,Prague,Czechia,Oceanic / Continental
+Region 6: Europe,Luxembourg,Luxembourg,Oceanic
+Region 6: Europe,Gothenburg,Sweden,Oceanic
+Region 6: Europe,Malmo,Sweden,Oceanic
+Region 6: Europe,Aarhus,Denmark,Oceanic
+Region 6: Europe,Bergen,Norway,Oceanic

@@ -1,0 +1,113 @@
+﻿Device: CUDA
+Pre-loading dataset into RAM...
+Successfully loaded and transformed 18384 iterations.
+
+=== unet_small_s0_f1 | 3,434,625 params | 12868 train ===
+  ep 0001 | train 409.7623 | val 410.7900 | best 410.7900 @1 | pat 0
+  ep 0020 | train 229.0864 | val 227.1575 | best 227.1575 @20 | pat 0
+  ep 0040 | train 72.5372 | val 60.0725 | best 60.0725 @40 | pat 0
+  ep 0060 | train 53.7247 | val 49.3163 | best 47.7781 @59 | pat 1
+  ep 0080 | train 44.9808 | val 40.6497 | best 40.6497 @80 | pat 0
+  ep 0100 | train 40.5409 | val 38.5991 | best 38.1557 @95 | pat 5
+  ep 0120 | train 37.1053 | val 36.4133 | best 35.6395 @117 | pat 3
+  ep 0140 | train 33.1267 | val 34.8249 | best 33.8741 @134 | pat 6
+  ep 0160 | train 31.3261 | val 32.9498 | best 32.9498 @160 | pat 0
+  ep 0180 | train 29.5692 | val 32.7834 | best 32.7273 @169 | pat 11
+  ep 0200 | train 28.7309 | val 33.0008 | best 32.4673 @194 | pat 6
+  ep 0220 | train 28.0435 | val 32.5019 | best 32.3226 @214 | pat 6
+  ep 0240 | train 27.9797 | val 32.5672 | best 32.3097 @223 | pat 17
+  ep 0260 | train 27.6627 | val 32.5705 | best 32.2350 @252 | pat 8
+  ep 0280 | train 27.6155 | val 32.5177 | best 32.1999 @268 | pat 12
+  ep 0300 | train 27.4264 | val 32.5319 | best 32.1999 @268 | pat 32
+  ep 0320 | train 27.5007 | val 32.3700 | best 32.1999 @268 | pat 52
+  early stop @ epoch 328
+  -> val 32.1999 | MAE 698.7 | SSIM 0.9046 | R2 0.8285 | glareF1 91.5% | 8.5 min
+
+=== unet_small_noattn_s0_f1 | 3,170,945 params | 12868 train ===
+  ep 0001 | train 408.8281 | val 409.4344 | best 409.4344 @1 | pat 0
+  ep 0020 | train 259.0822 | val 255.1664 | best 255.1664 @20 | pat 0
+  ep 0040 | train 76.3622 | val 71.7829 | best 63.4462 @39 | pat 1
+  ep 0060 | train 56.1483 | val 50.9176 | best 50.9176 @60 | pat 0
+  ep 0080 | train 45.8134 | val 42.8420 | best 41.4170 @79 | pat 1
+  ep 0100 | train 40.7459 | val 39.8430 | best 38.3422 @99 | pat 1
+  ep 0120 | train 37.3618 | val 36.4438 | best 36.4438 @120 | pat 0
+  ep 0140 | train 34.6020 | val 35.3865 | best 34.1789 @134 | pat 6
+  ep 0160 | train 30.8530 | val 33.7443 | best 32.8612 @151 | pat 9
+  ep 0180 | train 28.4964 | val 32.4857 | best 32.4857 @180 | pat 0
+  ep 0200 | train 27.8431 | val 32.3291 | best 32.2517 @199 | pat 1
+  ep 0220 | train 27.2674 | val 32.3572 | best 32.2471 @201 | pat 19
+  ep 0240 | train 27.2189 | val 32.4285 | best 32.0771 @223 | pat 17
+  ep 0260 | train 27.0702 | val 32.4767 | best 32.0771 @223 | pat 37
+  ep 0280 | train 27.1911 | val 32.3417 | best 32.0771 @223 | pat 57
+  early stop @ epoch 283
+  -> val 32.0771 | MAE 700.4 | SSIM 0.9043 | R2 0.8284 | glareF1 91.6% | 6.9 min
+
+=== unet_matched_s0_f1 | 8,042,322 params | 12868 train ===
+  ep 0001 | train 408.4790 | val 409.5389 | best 409.5389 @1 | pat 0
+  ep 0020 | train 115.9432 | val 115.9931 | best 115.9931 @20 | pat 0
+  ep 0040 | train 62.2325 | val 56.2923 | best 52.7202 @39 | pat 1
+  ep 0060 | train 49.5617 | val 49.4784 | best 44.1475 @57 | pat 3
+  ep 0080 | train 43.8780 | val 38.7104 | best 38.7104 @80 | pat 0
+  ep 0100 | train 38.9380 | val 36.8918 | best 36.5964 @98 | pat 2
+  ep 0120 | train 35.9977 | val 36.8688 | best 34.7124 @118 | pat 2
+  ep 0140 | train 32.9427 | val 33.7639 | best 32.7030 @137 | pat 3
+  ep 0160 | train 28.7400 | val 31.4770 | best 31.3040 @159 | pat 1
+  ep 0180 | train 26.7249 | val 31.0038 | best 30.7848 @172 | pat 8
+  ep 0200 | train 24.9839 | val 30.5597 | best 30.4731 @192 | pat 8
+  ep 0220 | train 23.5153 | val 30.9333 | best 30.3685 @218 | pat 2
+  ep 0240 | train 22.9892 | val 30.4146 | best 30.2231 @224 | pat 16
+  ep 0260 | train 22.7163 | val 30.3262 | best 30.2231 @224 | pat 36
+  ep 0280 | train 22.7132 | val 30.3679 | best 30.2231 @224 | pat 56
+  early stop @ epoch 284
+  -> val 30.2231 | MAE 676.3 | SSIM 0.9089 | R2 0.8431 | glareF1 92.0% | 10.8 min
+
+=== xf_small_s0_f1 | 3,440,308 params | 12868 train ===
+  ep 0001 | train 375.4814 | val 365.1626 | best 365.1626 @1 | pat 0
+  ep 0020 | train 156.3141 | val 157.1222 | best 157.1222 @20 | pat 0
+  ep 0040 | train 67.1050 | val 63.4900 | best 63.4900 @40 | pat 0
+  ep 0060 | train 58.4979 | val 54.7987 | best 54.7987 @60 | pat 0
+  ep 0080 | train 49.1706 | val 45.6201 | best 45.6201 @80 | pat 0
+  ep 0100 | train 42.8771 | val 40.0322 | best 40.0322 @100 | pat 0
+  ep 0120 | train 40.0514 | val 37.8308 | best 36.3517 @110 | pat 10
+  ep 0140 | train 37.8220 | val 34.7110 | best 34.0595 @135 | pat 5
+  ep 0160 | train 34.9130 | val 33.5068 | best 32.1303 @159 | pat 1
+  ep 0180 | train 34.2147 | val 31.7098 | best 31.3288 @169 | pat 11
+  ep 0200 | train 32.5748 | val 30.4538 | best 30.1586 @189 | pat 11
+  ep 0220 | train 32.0452 | val 29.7723 | best 29.2749 @209 | pat 11
+  ep 0240 | train 31.4514 | val 29.4690 | best 29.1090 @227 | pat 13
+  ep 0260 | train 31.4171 | val 29.4404 | best 29.1090 @227 | pat 33
+  ep 0280 | train 31.4610 | val 29.2494 | best 29.1090 @227 | pat 53
+  early stop @ epoch 287
+  -> val 29.1090 | MAE 650.2 | SSIM 0.9128 | R2 0.8238 | glareF1 92.7% | 25.0 min
+
+=== xf_matched_s0_f1 | 7,945,732 params | 12868 train ===
+  ep 0001 | train 363.2384 | val 347.9586 | best 347.9586 @1 | pat 0
+  ep 0020 | train 72.4064 | val 71.6003 | best 67.3028 @19 | pat 1
+  ep 0040 | train 60.1606 | val 59.5375 | best 56.0050 @39 | pat 1
+  ep 0060 | train 47.8243 | val 44.7290 | best 44.7290 @60 | pat 0
+  ep 0080 | train 39.6430 | val 36.4479 | best 36.4479 @80 | pat 0
+  ep 0100 | train 36.2624 | val 33.5273 | best 33.4897 @94 | pat 6
+  ep 0120 | train 34.0675 | val 30.6963 | best 30.6963 @120 | pat 0
+  ep 0140 | train 32.2975 | val 29.9324 | best 29.7078 @131 | pat 9
+  ep 0160 | train 29.0019 | val 27.3715 | best 26.8628 @158 | pat 2
+  ep 0180 | train 26.9464 | val 25.8805 | best 25.3551 @174 | pat 6
+  ep 0200 | train 26.2576 | val 25.2558 | best 24.7959 @190 | pat 10
+  ep 0220 | train 25.3724 | val 24.1055 | best 23.9992 @212 | pat 8
+  ep 0240 | train 24.7980 | val 23.7182 | best 23.6516 @235 | pat 5
+  ep 0260 | train 24.5145 | val 23.7771 | best 23.4345 @251 | pat 9
+  ep 0280 | train 24.3879 | val 23.3970 | best 23.3618 @269 | pat 11
+  ep 0300 | train 24.3759 | val 23.3431 | best 23.3415 @289 | pat 11
+  ep 0320 | train 24.3091 | val 23.2967 | best 23.2129 @319 | pat 1
+  ep 0340 | train 24.3654 | val 23.3383 | best 23.2129 @319 | pat 21
+  ep 0360 | train 24.2889 | val 23.3222 | best 23.2129 @319 | pat 41
+  early stop @ epoch 379
+  -> val 23.2129 | MAE 460.9 | SSIM 0.9353 | R2 0.8726 | glareF1 94.1% | 44.6 min
+
+arm                 seed  frac     params      val      MAE     RMSE       R2    SSIM   glF1    min
+---------------------------------------------------------------------------------------------------
+xf_matched             0     1  7,945,732  23.2129    460.9   3071.4   0.8726  0.9353   94.1   44.6
+xf_small               0     1  3,440,308  29.1090    650.2   3612.1   0.8238  0.9128   92.7   25.0
+unet_matched           0     1  8,042,322  30.2231    676.3   3408.6   0.8431  0.9089   92.0   10.8
+unet_small             0     1  3,434,625  32.1999    698.7   3563.5   0.8285  0.9046   91.5    8.5
+unet_small_noattn      0     1  3,170,945  32.0771    700.4   3564.9   0.8284  0.9043   91.6    6.9
+

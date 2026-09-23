@@ -1,0 +1,99 @@
+{
+  "schema": "facade_verification/1",
+  "city": "USA_TX_Houston-Bush.Intercontinental.AP.722430",
+  "room": {
+    "width": 6.0,
+    "depth": 8.0,
+    "height": 3.0,
+    "north_angle": 0.0
+  },
+  "glazing_pct": 5.46875,
+  "scene": "isolated room \u2014 no exterior context, matching the training assumption",
+  "rad_params": "-I+ -ab 6 -ad 1024 -as 512 -aa 0 -lw 0.00005 -lr 8 -dc 1 -dj 0 -ds 0.2 -dt 0 -dr 1 -dp 512 -ss 0.7 -st 0.5",
+  "sensor_height_m": 0.6,
+  "glare_lux": 3000.0,
+  "zone_min_ratio": 0.75,
+  "n_conditions": 4,
+  "n_failed": 0,
+  "slots": [
+    {
+      "hour": 12,
+      "n_conditions": 4,
+      "occupied_cells": 96,
+      "target_lux_mean": 400.0,
+      "radiance_vs_target": {
+        "occupied_cells": 96,
+        "target_lux_mean": 400.0,
+        "zone_mean_lux": 392.8064880371094,
+        "zone_underlit_pct": 1.8229166666666667,
+        "zone_glare_pct": 0.0,
+        "floor_glare_pct": 0.1953125,
+        "floor_mean_lux": 426.1200256347656
+      },
+      "surrogate_vs_target": {
+        "occupied_cells": 96,
+        "target_lux_mean": 400.0,
+        "zone_mean_lux": 386.9205017089844,
+        "zone_underlit_pct": 1.8229166666666667,
+        "zone_glare_pct": 0.0,
+        "floor_glare_pct": 0.1708984375,
+        "floor_mean_lux": 416.48516845703125
+      },
+      "radiance_vs_surrogate": {
+        "n_pixels": 4096,
+        "rmse": 70.47399139404297,
+        "mae": 22.2652587890625,
+        "bias": -9.634866714477539,
+        "r2": 0.9387555122375488,
+        "p50": 16.72869110107422,
+        "p90": 42.3031005859375,
+        "p99": 77.98439025878906,
+        "p999": 275.6473083496094,
+        "max": 3112.931396484375,
+        "room_mean_mape_pct": 2.30515456199646,
+        "room_mean_corr": 0.9988218363068708,
+        "zone_rmse": 22.744863510131836,
+        "zone_mae": 17.8487606048584,
+        "zone_bias": -5.885995388031006
+      }
+    }
+  ],
+  "overall": {
+    "target_lux_mean": 400.0,
+    "radiance_vs_target": {
+      "occupied_cells": 96,
+      "target_lux_mean": 400.0,
+      "zone_mean_lux": 392.8064880371094,
+      "zone_underlit_pct": 1.8229166666666667,
+      "zone_glare_pct": 0.0,
+      "floor_glare_pct": 0.1953125,
+      "floor_mean_lux": 426.1200256347656
+    },
+    "surrogate_vs_target": {
+      "occupied_cells": 96,
+      "target_lux_mean": 400.0,
+      "zone_mean_lux": 386.9205017089844,
+      "zone_underlit_pct": 1.8229166666666667,
+      "zone_glare_pct": 0.0,
+      "floor_glare_pct": 0.1708984375,
+      "floor_mean_lux": 416.48516845703125
+    },
+    "radiance_vs_surrogate": {
+      "n_pixels": 4096,
+      "rmse": 70.47399139404297,
+      "mae": 22.2652587890625,
+      "bias": -9.634866714477539,
+      "r2": 0.9387555122375488,
+      "p50": 16.72869110107422,
+      "p90": 42.3031005859375,
+      "p99": 77.98439025878906,
+      "p999": 275.6473083496094,
+      "max": 3112.931396484375,
+      "room_mean_mape_pct": 2.30515456199646,
+      "room_mean_corr": 0.9988218363068708,
+      "zone_rmse": 22.744863510131836,
+      "zone_mae": 17.8487606048584,
+      "zone_bias": -5.885995388031006
+    }
+  }
+}
