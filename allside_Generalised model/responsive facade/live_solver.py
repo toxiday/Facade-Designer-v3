@@ -46,6 +46,7 @@ import sys
 import math
 import time
 import threading
+from contextlib import contextmanager
 from pathlib import Path
 from dataclasses import dataclass, field, replace
 
@@ -369,6 +370,69 @@ def zone_stats(occupants, owner, lux):
 
 
 # ---------------------------------------------------------------------------
+# GPU gate
+# ---------------------------------------------------------------------------
+
+class _GpuGate:
+    """Serialises GPU use between the solver thread and the UI thread's predict().
+
+    CUDA tolerates a forward pass on one thread while another is mid-solve.  Apple's MPS does
+    not: two threads encoding into its shared command buffer abort the process ("A command
+    encoder is already encoding to this command buffer") or segfault.  So on MPS the solver
+    HOLDS the gate for a whole solve and, between optimizer steps, hands it over to a predict
+    that is waiting — the live map still updates mid-solve, one step's latency late.  On every
+    other device the gate is a no-op, so the CUDA behaviour measured above is unchanged.
+    """
+
+    def __init__(self, enabled):
+        self.enabled  = enabled
+        self._lock    = threading.Lock()
+        self._cv      = threading.Condition()
+        self._waiting = 0            # predicts blocked on the lock
+
+    @contextmanager
+    def hold(self):
+        """The solver's claim, held for a whole solve."""
+        if not self.enabled:
+            yield
+            return
+        with self._lock:
+            yield
+
+    @contextmanager
+    def turn(self):
+        """A predict's claim.  Registers as waiting so the solver yields at its next step."""
+        if not self.enabled:
+            yield
+            return
+        with self._cv:
+            self._waiting += 1
+        self._lock.acquire()
+        with self._cv:
+            self._waiting -= 1
+            self._cv.notify_all()
+        try:
+            yield
+        finally:
+            self._lock.release()
+
+    def yield_to_waiting(self):
+        """Called by the solver between steps, while holding the gate.  Cheap when nobody waits.
+
+        Waiting until the predict has TAKEN the lock before re-acquiring is what makes the
+        hand-over fair: a bare release()/acquire() pair lets this thread win it straight back.
+        """
+        if not self.enabled or not self._waiting:
+            return
+        torch.mps.synchronize()      # finish this thread's queued work before another encodes
+        self._lock.release()
+        with self._cv:
+            while self._waiting:
+                self._cv.wait()
+        self._lock.acquire()
+
+
+# ---------------------------------------------------------------------------
 # Solver
 # ---------------------------------------------------------------------------
 
@@ -383,6 +447,7 @@ class LiveSolver:
     def __init__(self, weights_path=None, device=None, verbose=True):
         kw = {} if weights_path is None else dict(weights_path=weights_path)
         self.opt   = FacadeOptimizerAllSidesClimate(device=device, **kw)
+        self._gate = _GpuGate(enabled=self.opt.device.type == "mps")
         self._X    = None            # (4,16,32) logits from the last solve
         self._key  = None            # structural_key() those logits belong to
         self.verbose = verbose
@@ -494,6 +559,7 @@ class LiveSolver:
                  + lambda_tv * tv_loss(P))
             L.backward()
             o.step()
+            self._gate.yield_to_waiting()
             # Judge on the BINARISED design, like optimize_coarse_to_fine does: the shipped
             # facade is binary, so a continuous loss that improves while the binary gets worse
             # is not an improvement.
@@ -566,15 +632,21 @@ class LiveSolver:
         if note is not None:
             return np.zeros((GRID_N, GRID_N), dtype=np.float32), sun, note
         cond = append_room(cond5, scene.width, scene.depth, scene.height)
-        return self.opt.predict_lux(np.asarray(binary), cond)[0], sun, None
+        with self._gate.turn():
+            return self.opt.predict_lux(np.asarray(binary), cond)[0], sun, None
 
     def solve(self, scene, force_cold=False, on_preview=None):
         """Solve `scene` and return a SolveResult.  Blocking; run it off the UI thread.
 
         `on_preview(FacadePreview)` is called from THIS thread each time the optimizer improves
         on its best binary and the cooldown allows — see PREVIEW_COOLDOWN.  It must be cheap and
-        must not block: anything slow here stalls the optimizer itself.
+        must not block: anything slow here stalls the optimizer itself.  It must not call
+        predict() either: on MPS this thread holds the GPU gate, so that would deadlock.
         """
+        with self._gate.hold():
+            return self._solve(scene, force_cold, on_preview)
+
+    def _solve(self, scene, force_cold, on_preview):
         t0    = time.time()
         occs  = list(scene.occupants)
         owner = occupant_owner_grid(occs, scene.width, scene.depth)
@@ -633,7 +705,8 @@ class LiveSolver:
                 schedule=SHORT_SCHEDULE, eval_every=10,
                 glare_weight=GLARE_WEIGHT, verbose=self.verbose,
                 progress_callback=_c2f_cb if on_preview else None,
-                callback_every=PREVIEW_EVERY)
+                callback_every=PREVIEW_EVERY,
+                step_callback=self._gate.yield_to_waiting)
             res.converged = self._c2f_converged(hist)
             res.mode = "cold"
             # optimize_coarse_to_fine hands back its binary but not the logits behind it, so
@@ -740,7 +813,8 @@ class SolverWorker:
         remove.  Safe to call while the solver thread is mid-solve: the model is in eval(), its
         parameters are requires_grad_(False), predict_lux runs under no_grad, and autocast state
         is thread-local, so a concurrent forward mutates nothing the solver owns.  Measured
-        contention is ~26 ms p95 during an active cold solve.
+        contention is ~26 ms p95 during an active cold solve (CUDA).  On MPS the two threads
+        cannot share the GPU at all, so this waits for the solver's next step — see _GpuGate.
 
         Returns None if the model has not finished loading yet (`ready` has not fired).
         """

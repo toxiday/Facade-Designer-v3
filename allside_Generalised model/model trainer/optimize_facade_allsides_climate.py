@@ -538,7 +538,8 @@ class FacadeOptimizerAllSidesClimate:
                                 lambda_tv=0.02, lr=0.05, chunk=16,
                                 glare_weight=DEFAULT_GLARE_WEIGHT, glare_cap=GLARE_LUX,
                                 eval_every=10, bin_patience=12, callback_every=3,
-                                log_every=25, progress_callback=None, verbose=True):
+                                log_every=25, progress_callback=None, step_callback=None,
+                                verbose=True):
         """
         Coarse-to-fine (multigrid) 4-facade optimization, to escape the init-dependent
         local minima a direct optimization falls into.
@@ -557,6 +558,8 @@ class FacadeOptimizerAllSidesClimate:
           * the final stage anneals tau -> tau_final so the soft facade sharpens to binary.
           * ANY stage early-stops once its binary score plateaus for `bin_patience` evals.
         `facade_open` freezes unpicked walls to solid (their P forced 0) at every stage.
+        `step_callback()` (optional, no arguments) runs after every optimizer step — the live
+        demo uses it to let another thread onto an Apple-silicon GPU between steps.
         Returns (binary (4,R,C), P_final (4,R,C), history) — same contract as optimize().
         """
         T      = cond.shape[0]
@@ -633,6 +636,8 @@ class FacadeOptimizerAllSidesClimate:
                 L_tv  = tv_loss(torch.sigmoid(Xfull / cur_tau) * open_m)
                 (lambda_tv * ramp * L_tv).backward()
                 opt.step()
+                if step_callback is not None:
+                    step_callback()
 
                 L_total = l_zone_val + lambda_tv * ramp * L_tv.item()
                 if L_total < best_L_cont:
