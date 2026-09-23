@@ -32,6 +32,7 @@ Window encodings — the authoritative mapping for the whole project (see WIN_VA
     both output CSVs        is_window     1 = window
 """
 
+import os
 import math
 import glob
 import time
@@ -368,10 +369,23 @@ def tv_loss(P):
 # Optimizer
 # ---------------------------------------------------------------------------
 
+def pick_device():
+    """CUDA, then Apple-silicon MPS, then CPU.  FACADE_DEVICE=cpu|cuda|mps overrides, e.g. to
+    fall back to CPU if an MPS op misbehaves.  AMP stays CUDA-only, so MPS runs in float32."""
+    forced = os.environ.get("FACADE_DEVICE")
+    if forced:
+        return torch.device(forced)
+    if torch.cuda.is_available():
+        return torch.device("cuda")
+    if torch.backends.mps.is_available():
+        return torch.device("mps")
+    return torch.device("cpu")
+
+
 class FacadeOptimizerAllSidesClimate:
     def __init__(self, weights_path=BEST_MODEL_PATH, device=None):
         if device is None:
-            device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+            device = pick_device()
         self.device = device
         self.model = AllSidesClimateTransformer(**MODEL_CONFIG).to(device)
         state = torch.load(str(weights_path), weights_only=True, map_location=device)

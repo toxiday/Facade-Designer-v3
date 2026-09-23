@@ -43,6 +43,16 @@ py -3.12 -m venv .venv
 .venv\Scripts\python -m pip install -r requirements.txt
 ```
 
+macOS (Apple silicon; Intel Macs are not supported by current PyTorch). Not yet benchmarked; the
+surrogate runs on the Apple GPU (MPS) automatically:
+
+```bash
+python3.12 -m venv .venv
+.venv/bin/python -m pip install torch -r requirements.txt
+```
+
+The device is picked CUDA → MPS → CPU. Set `FACADE_DEVICE=cpu` (or `cuda` / `mps`) to force one.
+
 **Weights.** Download `best_facade_allsides_climate_genroom.pth` from the
 [v1.0 release](../../releases/tag/v1.0) into `allside_Generalised model/models/`.
 SHA-256: `0be1a5710ffbe7cec4b90ae3fe4e598b42892252d43c081270a8bb3940b30e61`
